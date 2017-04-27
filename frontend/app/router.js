@@ -7,6 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('tests', {path: 'tests/:feature_name'});
+  this.route('features', {path: '/'});
 });
 
 export default Router;

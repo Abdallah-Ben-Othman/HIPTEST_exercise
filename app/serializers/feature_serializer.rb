@@ -1,3 +1,4 @@
 class FeatureSerializer < ActiveModel::Serializer
-  attributes :id, :name
+	attributes :id, :name
+	has_many :tests
 end
