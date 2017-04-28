@@ -1,10 +1,9 @@
+<button {{action 'testManagerCreation'}}>{{creationButtonText}}</button>
 <ul>
 	{{#each model as |element|}}
 		<li> 
-			<u {{action 'testManagerLink'}}>{{element.name}}</u>
-			{{#if isTest}}
-				<bold>TODO: put test state rolling list here</bold>
-			{{/if}}
-		<button {{action 'testManagerDelete'}}>Delete</button> </li> 
+			{{partial elementComponent}}
+			<button {{action 'testManagerDelete'}}>Delete</button>
+		</li> 
 	{{/each}}
 </ul>

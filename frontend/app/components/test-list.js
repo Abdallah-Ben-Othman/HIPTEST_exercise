@@ -2,8 +2,8 @@
 import TestManagerList from './test-manager-list';
 
 export default TestManagerList.extend({
-	creationButtonText: 'Create new feature',
-	elementComponent: 'feature-element-template',
+	creationButtonText: 'Create new test',
+	elementComponent: 'test-element-template',
 	actions: {
 		testManagerCreation: function() {
 
