@@ -1,1 +1,4 @@
-<u>{{element.name}}</u><u>TODO make the list</u>
+<u>{{element.name}}</u>
+{{#each test_state_model as |state|}}
+	<li> {{state.name}} </li>
+{{/each}}

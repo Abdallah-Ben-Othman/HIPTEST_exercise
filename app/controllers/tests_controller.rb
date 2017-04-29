@@ -2,10 +2,20 @@ class TestsController < ApplicationController
   before_action :set_test, only: [:show, :update, :destroy]
 
   # GET /tests
-  def index
-    @tests = Test.all
+  #def index
+  #  @tests = Test.all
+	
+  #  render json: @tests
+  #end
 
-    render json: @tests
+  def index
+    @tests = Test
+    if params[:feature_id].present?
+      @tests = @tests.where(feature_id: params[:feature_id])
+      render json: @tests
+    else
+      #TODO Manage the error
+    end
   end
 
   # GET /tests/1
