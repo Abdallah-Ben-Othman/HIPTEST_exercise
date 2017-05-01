@@ -27,8 +27,8 @@ class TestsController < ApplicationController
   # POST /tests
   def create
     deserialized_params = deserialize_params
-    defaultTestState = TestState.where(name: 'Undefined')
-    deserialized_params[:test_state_id] = defaultTestState[0][:id]    
+    default_test_state = TestState.where(name: 'Undefined')
+    deserialized_params[:test_state_id] = default_test_state[0][:id]    
     deserialized_params[:name] = createNewTestName(deserialized_params)
     @test = Test.new(deserialized_params)
 
@@ -42,7 +42,11 @@ class TestsController < ApplicationController
 
   # PATCH/PUT /tests/1
   def update
-    if @test.update(test_params)
+    deserialized_params = deserialize_params
+	puts '------------------------------------------------------------------------------------------------------------------------------------------------------'
+	puts deserialized_params.inspect
+	puts '------------------------------------------------------------------------------------------------------------------------------------------------------'
+    if @test.update(deserialized_params)
       render json: @test
     else
       render json: @test.errors, status: :unprocessable_entity

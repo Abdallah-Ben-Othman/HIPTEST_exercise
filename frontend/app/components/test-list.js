@@ -5,9 +5,10 @@ export default TestManagerList.extend({
 	creationButtonText: 'Create new test',
 	elementComponent: 'test-element-template',
 	actions: {
-		testManagerChangeTestState: function() {
-
-			alert('Not implemented yet');
+		updateTestState(testId, newTestStateId) {
+			
+			this.set('dropDownListAction', 'controllerUpdateTestState');
+			this.sendAction('dropDownListAction', testId, newTestStateId);
 		}
 	}
 });

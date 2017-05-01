@@ -1,6 +1,2 @@
-<u>{{element.name}}</u>
-<select onChange={{action 'testManagerChangeTestState'}}>
-	{{#each test_state_model as |state|}}
-		<option value={{state.id}} selected={{test.test_state_id}}>{{state.name}}</option>
-	{{/each}}
-</select>
+<u>{{element.name}}</u> {{test-state-drop-down-list model=test_state_model test=element testId=element.id dropDownListAction='updateTestState'}} 
+

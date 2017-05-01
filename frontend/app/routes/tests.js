@@ -13,8 +13,8 @@ export default Ember.Route.extend({
 	},
 	setupController(controller, model) {
 		this._super(...arguments);
-		Ember.set(controller, 'test', model.test);
-		Ember.set(controller, 'test_state', model.testState);
+		Ember.set(controller, 'tests', model.test.toArray());
+		Ember.set(controller, 'test_states', model.testState.toArray());
 		Ember.set(controller, 'feature', model.feature);
 	}
 });
