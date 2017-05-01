@@ -7,13 +7,9 @@ export default Ember.Component.extend({
 		return this.container.lookup('template:components/test-manager-list')
 	}),
 	actions: {
-		testManagerDelete: function() {
-			
-			alert('This is an abstract function');
-		},
 		testManagerCreation: function() {
 
-			alert('This is an abstract function');
+			this.get('controllerActionWhenCreationButtonIsPressed')();
 		}
 	}
 });

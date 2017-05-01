@@ -15,9 +15,11 @@ class FeaturesController < ApplicationController
 
   # POST /features
   def create
+	params[:name] = createNewFeatureName()
     @feature = Feature.new(feature_params)
 
     if @feature.save
+      puts json: @feature, status: :created, location: @feature
       render json: @feature, status: :created, location: @feature
     else
       render json: @feature.errors, status: :unprocessable_entity
@@ -44,8 +46,15 @@ class FeaturesController < ApplicationController
       @feature = Feature.find(params[:id])
     end
 
+    def createNewFeatureName
+      newFeatureNameNumber = Feature.maximum(:id) + 1
+      newFeatureName = "Feature_#{newFeatureNameNumber}"
+      return newFeatureName
+    end
+
     # Only allow a trusted parameter "white list" through.
     def feature_params
-      params.require(:feature).permit(:name)
+      
+      params.permit(:name)
     end
 end

@@ -46,6 +46,6 @@ class TestStatesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def test_state_params
-      params.require(:test_state).permit(:name)
+      #params.require(:test_state).permit(:name)
     end
 end

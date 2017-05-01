@@ -5,12 +5,8 @@ export default TestManagerList.extend({
 	creationButtonText: 'Create new test',
 	elementComponent: 'test-element-template',
 	actions: {
-		testManagerCreation: function() {
+		testManagerChangeTestState: function() {
 
-			alert('Not implemented yet');
-		},
-		testManagerDelete: function() {
-		
 			alert('Not implemented yet');
 		}
 	}

@@ -1,2 +1,2 @@
-<h1>TODO update to link with good feature name</h1>
-{{test-list model=test test_state_model=test_state}}
+<h1>{{feature.name}}</h1>
+{{test-list model=test test_state_model=test_state  controllerActionWhenCreationButtonIsPressed=(action 'createTest' feature.id)}}
