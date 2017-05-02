@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	creationButtonText: 'This is an abstract button',
-	defaultLayout: Ember.computed(function() {
+	layout: Ember.computed(function() {
     
 		return this.container.lookup('template:components/test-manager-list')
 	}),

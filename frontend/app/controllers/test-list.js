@@ -12,11 +12,8 @@ export default Ember.Controller.extend({
 
 		controllerUpdateTestState(testId, newTestStateId) {
 
-			alert("We update test number : " + testId);
-			alert("New test state : " + newTestStateId);
 			var testToUpdate = this.get('store').peekRecord('test', testId);
 			var newTestState = this.get('store').peekRecord('test_state', newTestStateId);
-			alert("test to update : " + testToUpdate);
 			testToUpdate.set('testState', newTestState);
 			testToUpdate.save();
 		}
