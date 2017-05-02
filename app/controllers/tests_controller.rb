@@ -43,9 +43,6 @@ class TestsController < ApplicationController
   # PATCH/PUT /tests/1
   def update
     deserialized_params = deserialize_params
-	puts '------------------------------------------------------------------------------------------------------------------------------------------------------'
-	puts deserialized_params.inspect
-	puts '------------------------------------------------------------------------------------------------------------------------------------------------------'
     if @test.update(deserialized_params)
       render json: @test
     else
@@ -65,10 +62,14 @@ class TestsController < ApplicationController
     end
 
     def createNewTestName(deserialized_params)
-      otherTestsFromSameFeature = sortOtherTestsByName(Test.where(feature_id: deserialized_params[:feature_id]))
-      puts otherTestsFromSameFeature.inspect
       firstNumberAvailable = 1
-      otherTestSize = otherTestsFromSameFeature.count
+      otherTestSize = 0
+      if Test.exists? 
+
+          otherTestsFromSameFeature = sortOtherTestsByName(Test.where(feature_id: deserialized_params[:feature_id]))
+          otherTestSize = otherTestsFromSameFeature.count
+      end
+
       newTestName = "Test #{firstNumberAvailable}"
 
       while firstNumberAvailable - 1 < otherTestSize and newTestName == otherTestsFromSameFeature[firstNumberAvailable - 1][:name] do

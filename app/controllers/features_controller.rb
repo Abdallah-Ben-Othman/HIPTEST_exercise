@@ -47,7 +47,11 @@ class FeaturesController < ApplicationController
     end
 
     def createNewFeatureName
-      newFeatureNameNumber = Feature.maximum(:id) + 1
+      if Feature.exists?
+        newFeatureNameNumber = Feature.maximum(:id) + 1
+      else
+        newFeatureNameNumber = 1
+      end
       newFeatureName = "Feature_#{newFeatureNameNumber}"
       return newFeatureName
     end
