@@ -1,3 +1,4 @@
+<u>{{test.name}}</u>
 <select onChange={{action 'changeTestState' value="target.value"}}>
 	{{#each model as |state|}}
 		<option value={{state.id}} selected={{eq state.id test.testState.id}}>{{state.name}}</option>
